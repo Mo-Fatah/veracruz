@@ -36,6 +36,8 @@ WASM_PROG_LIST = random-source.wasm \
 
 WASM_PROG_FILES = $(patsubst %.wasm, $(OUT_DIR)/%.wasm, $(WASM_PROG_LIST))
 
+.PRECIOUS: $(WASM_PROG_FILES)
+
 wasm-files: $(OUT_DIR) $(WASM_PROG_FILES)
 
 $(OUT_DIR):
@@ -43,6 +45,8 @@ $(OUT_DIR):
 
 $(OUT_DIR)/%.wasm: $(WORKSPACE_DIR)/applications/target/wasm32-wasi/$(PROFILE_PATH)/%.wasm
 	cp $< $@
+
+.PRECIOUS: $(WORKSPACE_DIR)/applications/target/wasm32-wasi/$(PROFILE_PATH)/%.wasm
 
 $(WORKSPACE_DIR)/applications/target/wasm32-wasi/$(PROFILE_PATH)/%.wasm:
 	$(MAKE) -C $(WORKSPACE_DIR)/applications
