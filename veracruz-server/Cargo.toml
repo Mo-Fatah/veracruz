@@ -24,8 +24,8 @@ icecap = [
   "policy-utils/icecap",
   "psa-attestation",
   "io-utils/icecap",
-  "veracruz-utils/icecap",
   "tempfile",
+  "veracruz-utils/icecap",
 ]
 icecap-qemu = []
 linux = [
@@ -65,6 +65,7 @@ rustls = "0.16"
 serde = { version = "1.0.115", default-features = false, features = ["derive"] }
 serde_json = "1.0"
 structopt = { version = "0.3", optional = true, features = ["wrap_help"] }
+tempfile = { version = "3.2.0", optional = true }
 transport-protocol = { path = "../transport-protocol" }
 veracruz-utils = { path = "../veracruz-utils", optional = true }
 webpki = "=0.21.2"
